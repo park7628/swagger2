@@ -1,0 +1,31 @@
+get:
+  summary: 집중관찰 시간의 아이의 감정별 시간 데이터
+  tags:
+    - dashboard
+  parameters:
+    $ref: '../../components/dashboard/getBabyCoreTimeDataInfo.yml#/GetBabyCoreTimeDataInfoParameters'
+  responses:
+    '200':
+      description: 감정별 시간데이터 불러오기 성공
+      content:
+        application/json:
+          schema:
+            $ref: '../../components/dashboard/getBabyCoreTimeDataInfo.yml#/BabyCoreTimeDataInfoSuccessResponse'
+    '400':
+      description: 불량 토큰
+      content:
+        application/json:
+          schema:
+            $ref: '../../components/dashboard/getBabyCoreTimeDataInfo.yml#/ErrorResponseInvalidToken'
+    '404':
+      description: 조회 범위내 정보 없음
+      content:
+        application/json:
+          schema:
+            $ref: '../../components/dashboard/getBabyCoreTimeDataInfo.yml#/ErrorResponseDBSearchNull'
+    '500':
+      description: 내부 서버 오류
+      content:
+        application/json:
+          schema:
+            $ref: '../../components/dashboard/getBabyCoreTimeDataInfo.yml#/ErrorResponseServer'

@@ -1,0 +1,42 @@
+CheckPassParameters:
+  - in: cookie
+    name: password
+    schema:
+      type: string
+    required: true
+    description: 비밀번호
+
+CheckPassSuccessResponse:
+  type: object
+  properties:
+    success:
+      type: boolean
+      example: true
+
+ErrorBadPassRequest:
+  type: object
+  properties:
+    success:
+      type: boolean
+      example: false
+    checkCharaters:
+      type: boolean
+      example: false
+      description: 영문, 숫자, 특수문자 조합 여부
+    checkPassLen:
+      type: boolean
+      example: false
+      description: 비밀번호 자릿수 만족 여부
+    message:
+      type: string
+      example: 양식에 맞지 않는 비밀번호입니다
+
+ErrorInternalServer:
+  type: object
+  properties:
+    success:
+      type: boolean
+      example: false
+    message:
+      type: string
+      example: Internal server error

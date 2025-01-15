@@ -1,0 +1,92 @@
+GetBabyCoreTimeDataInfoParameters:
+  - in: cookie
+    name: accessToken
+    schema:
+      type: string
+    required: true
+    description: 액세스 토큰
+
+BabyCoreTimeDataInfoSuccessResponse:
+  type: object
+  properties:
+    success:
+      type: boolean
+      example: true
+    emotionData:
+      type: object
+      properties:
+        1:
+          type: array
+          items:
+            type: integer
+            minimum: 0
+            maximum: 23
+          example: [14, 15, 16]
+        2:
+          type: array
+          items:
+            type: integer
+            minimum: 0
+            maximum: 23
+          example: [17, 18]
+        3:
+          type: array
+          items:
+            type: integer
+            minimum: 0
+            maximum: 23
+          example: [19, 20]
+        4:
+          type: array
+          items:
+            type: integer
+            minimum: 0
+            maximum: 23
+          example: [21, 22]
+        5:
+          type: array
+          items:
+            type: integer
+            minimum: 0
+            maximum: 23
+          example: [23, 0]
+    coreTimeStart:
+      type: integer
+      minimum: 0
+      maximum: 23
+      example: 9
+    coreTimeEnd:
+      type: integer
+      minimum: 0
+      maximum: 23
+      example: 18
+
+ErrorResponseInvalidToken:
+  type: object
+  properties:
+    success:
+      type: boolean
+      example: false
+    message:
+      type: string
+      example: 유효하지 않은 접근수단
+
+ErrorResponseDBSearchNull:
+  type: object
+  properties:
+    success:
+      type: boolean
+      example: false
+    message:
+      type: string
+      example: 해당 데이터가 없습니다.
+
+ErrorResponseServer:
+  type: object
+  properties:
+    success:
+      type: boolean
+      example: false
+    message:
+      type: string
+      example: 내부 서버 오류

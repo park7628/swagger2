@@ -1,0 +1,51 @@
+GetBabyInfoParameters:
+  - in: cookie
+    name: accessToken
+    schema:
+      type: string
+    required: true
+    description: 액세스 토큰
+
+BabyInfoSuccessResponse:
+  type: object
+  properties:
+    success:
+      type: boolean
+      example: true
+    babyName:
+      type: string
+      example: 김주박
+    babyBirth:
+      type: string
+      format: date-time
+      example: "YYYY-MM-DD HH:MI:SS"
+
+ErrorResponseInvalidToken:
+  type: object
+  properties:
+    success:
+      type: boolean
+      example: false
+    message:
+      type: string
+      example: 유효하지 않은 접근수단
+
+ErrorResponseDBSearchNull:
+  type: object
+  properties:
+    success:
+      type: boolean
+      example: false
+    message:
+      type: string
+      example: 해당 데이터가 없습니다.
+
+ErrorResponseServer:
+  type: object
+  properties:
+    success:
+      type: boolean
+      example: false
+    message:
+      type: string
+      example: 내부 서버 오류

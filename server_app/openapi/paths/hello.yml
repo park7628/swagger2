@@ -1,5 +1,7 @@
 get:
   summary: front-back 간 통신 여부 확인
+  tags:
+    - hello
   responses:
     '200':
       description: 성공

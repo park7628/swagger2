@@ -1,0 +1,31 @@
+get:
+  summary: 최빈 아이 감정 및 퍼센트
+  tags:
+    - dashboard
+  parameters:
+    $ref: '../../components/dashboard/getBabyFrequencyInfo.yml#/GetBabyFrequencyInfoParameters'
+  responses:
+    '200':
+      description: 최빈 아이 감정 및 퍼센트 불러오기 성공
+      content:
+        application/json:
+          schema:
+            $ref: '../../components/dashboard/getBabyFrequencyInfo.yml#/BabyFrequencyInfoSuccessResponse'
+    '400':
+      description: 불량 토큰
+      content:
+        application/json:
+          schema:
+            $ref: '../../components/dashboard/getBabyFrequencyInfo.yml#/ErrorResponseInvalidToken'
+    '404':
+      description: 아이 감정 정보 없음
+      content:
+        application/json:
+          schema:
+            $ref: '../../components/dashboard/getBabyFrequencyInfo.yml#/ErrorResponseDBSearchNull'
+    '500':
+      description: 내부 서버 오류
+      content:
+        application/json:
+          schema:
+            $ref: '../../components/dashboard/getBabyFrequencyInfo.yml#/ErrorResponseServer'

@@ -1,0 +1,29 @@
+post:
+  summary: 일반 사용자 설정 정보 설정
+  tags:
+    - config
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../../components/config/setSettingInfo.yml#/SetSettingInfoRequest'
+  responses:
+    '200':
+      description: 사용자 정보 설정 성공
+      content:
+        application/json:
+          schema:
+            $ref: '../../components/config/setSettingInfo.yml#/SetSettingInfoSuccessResponse'
+    '400':
+      description: 유효하지 않은 인증수단
+      content:
+        application/json:
+          schema:
+            $ref: '../../components/config/setSettingInfo.yml#/ErrorResponseInvalidToken'
+    '500':
+      description: 내부 서버 오류
+      content:
+        application/json:
+          schema:
+            $ref: '../../components/config/setSettingInfo.yml#/ErrorResponseInternalServer'

@@ -1,0 +1,32 @@
+get:
+  summary: 별칭 정보 요청
+  tags:
+    - config
+  parameters:
+    $ref: '../../components/config/getAliasName.yml#/GetAliasNameParameters'
+  responses:
+    '200':
+      description: 정보 전송 성공
+      content:
+        application/json:
+          schema:
+            $ref: '../../components/config/getAliasName.yml#/GetAliasNameSuccessResponse'
+    '400':
+      description: 유효하지 않은 인증수단
+      content:
+        application/json:
+          schema:
+            $ref: '../../components/config/getAliasName.yml#/ErrorResponseInvalidToken'
+    '404':
+      description: 존재하지 않는 이용자
+      content:
+        application/json:
+          schema:
+            $ref: '../../components/config/getAliasName.yml#/ErrorResponseNotUser'
+    '500':
+      description: 내부 서버 오류
+      content:
+        application/json:
+          schema:
+            $ref: '../../components/config/getAliasName.yml#/ErrorResponseInternalServer'
+  

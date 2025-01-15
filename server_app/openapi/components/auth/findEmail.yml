@@ -1,0 +1,34 @@
+FindEmailParameters:
+  - in: query
+    name: email
+    schema:
+      type: string
+    required: true
+    description: 이메일 주소
+
+FindEmailSuccessResponse:
+  type: object
+  properties:
+    success:
+      type: boolean
+      example: true
+
+ErrorResponseNotFoundEmail:
+  type: object
+  properties:
+    success:
+      type: boolean
+      exmaple: false
+    message:
+      type:
+      example: 등록되지 않은 이메일입니다
+
+ErrorResponseInternalServer:
+  type: object
+  properties:
+    success:
+      type: boolean
+      example: false
+    message:
+      type: string
+      example: 내부 서버 오류

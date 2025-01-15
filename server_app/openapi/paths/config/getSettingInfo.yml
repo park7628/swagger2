@@ -1,0 +1,25 @@
+get:
+  summary: 일반 사용자 설정 정보 제공
+  tags:
+    - config
+  parameters:
+    $ref: '../../components/config/getSettingInfo.yml#/GetSettingInfoParameters'
+  responses:
+    '200':
+      description: 사용자 살정 정보 전송
+      content:
+        application/json:
+          schema:
+            $ref: '../../components/config/getSettingInfo.yml#/GetSettingInfoSuccessResponse'
+    '400':
+      description: 유효하지 않은 인증수단
+      content:
+        application/json:
+          schema:
+            $ref: '../../components/config/getSettingInfo.yml#/ErrorResponseInvalidToken'
+    '500':
+      description: 내부 서버 오류
+      content:
+        application/json:
+          schema:
+            $ref: '../../components/config/getSettingInfo.yml#/ErrorResponseInternalServer'

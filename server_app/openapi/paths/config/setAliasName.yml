@@ -1,0 +1,35 @@
+post:
+  summary: 별칭 정보 수정
+  tags:
+    - config
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../../components/config/setAliasName.yml#/SetAliasNameRequest'
+  responses:
+    '200':
+      description: 수정 성공
+      content:
+        application/json:
+          schema:
+            $ref: '../../components/config/setAliasName.yml#/SetAliasNameSuccessResponse'
+    '400':
+      description: 유효하지 않은 인증수단
+      content:
+        application/json:
+          schema:
+            $ref: '../../components/config/setAliasName.yml#/ErrorResponseInvalidToken'
+    '404':
+      description: 존재하지 않는 이용자입
+      content:
+        application/json:
+          schema:
+            $ref: '../../components/config/setAliasName.yml#/ErrorResponseNotUser'
+    '500':
+      description: 내부 서버 오류
+      content:
+        application/json:
+          schema:
+            $ref: '../../components/config/setAliasName.yml#/ErrorResponseInternalServer'

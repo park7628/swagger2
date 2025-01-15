@@ -1,0 +1,54 @@
+GetSettingInfoParameters:
+  - in: cookie
+    name: accessToken
+    schema:
+      type: string
+    required: true
+    description: jwt 토큰
+
+GetSettingInfoSuccessResponse:
+  type: object
+  properties:
+    success:
+      type: boolean
+    alarm:
+      type: boolean
+    babyName:
+      type: string
+    babyBirth:
+      type: string
+      format: date
+    dataEmliminateDuration:
+      type: integer
+    coreTimeStart:
+      type: integer
+    coreTimeEnd:
+      type: integer
+  example:
+    success: true
+    alarm: true
+    babyName: "abc"
+    babyBirth: "2023-01-01"
+    dateEliminateDuration: 15
+    coreTimeStart: 13
+    coreTimeEnd: 17
+
+ErrorResponseInvalidToken:
+  type: object
+  properties:
+    success:
+      type: boolean
+      example: false
+    message:
+      type: string
+      example: 유효하지 않은 접근수단
+
+ErrorResponseInternalServer:
+  type: object
+  properties:
+    success:
+      type: boolean
+      example: false
+    message:
+      type: string
+      example: 내부 서버 오류

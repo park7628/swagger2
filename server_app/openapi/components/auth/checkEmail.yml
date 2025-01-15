@@ -1,0 +1,44 @@
+CheckEmailParameters:
+  - in: cookie
+    name: email
+    schema:
+      type: string
+    required: true
+    description: 이메일 주소
+
+CheckEamilSuccessResponse:
+  type: object
+  properties:
+    success:
+      type: boolean
+      example: true
+
+ErrorBadEmailRequest:
+  type: object
+  properties:
+    success:
+      type: boolean
+      example: false
+    message:
+      type: string
+      example: 양식에 맞지 않은 이메일입니다
+
+ErrorFoundEmail:
+  type: object
+  properties:
+    success:
+      type: boolean
+      example: false
+    message:
+      type: string
+      example: 이미 가입한 이메일입니다
+
+ErrorInternalServer:
+  type: object
+  properties:
+    success:
+      type: boolean
+      example: false
+    message:
+      type: string
+      example: Internal server error

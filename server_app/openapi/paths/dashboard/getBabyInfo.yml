@@ -1,0 +1,31 @@
+get:
+  summary: 아기 이름, 생년월일
+  tags:
+    - dashboard
+  parameters:
+    $ref: '../../components/dashboard/getBabyInfo.yml#/GetBabyInfoParameters'
+  responses:
+    '200':
+      description: 아기 이름, 생년월일 불러오기 성공
+      content:
+        application/json:
+          schema:
+            $ref: '../../components/dashboard/getBabyInfo.yml#/BabyInfoSuccessResponse'
+    '400':
+      description: 불량 토큰
+      content:
+        application/json:
+          schema:
+            $ref: '../../components/dashboard/getBabyInfo.yml#/ErrorResponseInvalidToken'
+    '404':
+      description: 조회된 이름 또는 생년월일 없음
+      content:
+        application/json:
+          schema:
+            $ref: '../../components/dashboard/getBabyInfo.yml#/ErrorResponseDBSearchNull'
+    '500':
+      description: 내부 서버 오류
+      content:
+        application/json:
+          schema:
+            $ref: '../../components/dashboard/getBabyInfo.yml#/ErrorResponseServer'

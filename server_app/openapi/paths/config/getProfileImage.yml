@@ -1,0 +1,25 @@
+get:
+  summary: 사용자 지정 이미지 얻기
+  tags:
+    - config
+  parameters:
+    $ref: '../../components/config/getProfileImage.yml#/GetProfileImageParameters'
+  responses:
+    '200':
+      description: 사용자 지정 이미지 전송
+      content:
+        application/json:
+          schema:
+            $ref: '../../components/config/getProfileImage.yml#/GetProfileImageSuccessResponse'
+    '400':
+      description: 유효하지 않은 인증수단
+      content:
+        application/json:
+          schema:
+            $ref: '../../components/config/getProfileImage.yml#/ErrorResponseInvalidToken'
+    '500':
+      description: 내부 서버 오류
+      content:
+        application/json:
+          schema:
+            $ref: '../../components/config/getProfileImage.yml#/ErrorResponseInternalServer'

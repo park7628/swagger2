@@ -1,0 +1,36 @@
+GetProfileImageParameters:
+  - in: cookies
+    name: accessToken
+    schema:
+      type: string
+    required: true
+    description: jwt 토큰
+
+GetProfileImageSuccessResponse:
+  type: object
+  properties:
+    success:
+      type: boolean
+      example: true
+    profileImage:
+      type: string
+
+ErrorResponseInvalidToken:
+  type: object
+  properties:
+    success:
+      type: boolean
+      example: false
+    message:
+      type: string
+      example: 유효하지 않은 인증수단
+
+ErrorResponseInternalServer:
+  type: object
+  properties:
+    success:
+      type: boolean
+      example: false
+    message:
+      type: string
+      example: 내부 서버 오류

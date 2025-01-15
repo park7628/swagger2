@@ -1,0 +1,29 @@
+post:
+  summary: 사용자 지정 이미지 설정
+  tags:
+    - config
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../../components/config/setProfileImage.yml#/SetProfileImageRequest'
+  responses:
+    '200':
+      description: 사용자 지정 이미지 설정 성공
+      content:
+        application/json:
+          schema:
+            $ref: '../../components/config/setProfileImage.yml#/SetProfileImageSuccessResponse'
+    '400':
+      description: 유효하지 않은 인증수단
+      content:
+        application/json:
+          schema:
+            $ref: '../../components/config/setProfileImage.yml#/ErrorResponseInvalidToken'
+    '500':
+      description: 내부 서버 오류
+      content:
+        application/json:
+          schema:
+            $ref: '../../components/config/setProfileImage.yml#/ErrorResponseInternalServer'

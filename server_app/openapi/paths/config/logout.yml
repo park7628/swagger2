@@ -1,0 +1,29 @@
+post:
+  summary: logout 요청
+  tags:
+    - config
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../../components/config/logout.yml#/LogoutRequest'
+  responses:
+    '200':
+      description: 사용자 로그아웃 성공
+      content:
+        application/json:
+          schema:
+            $ref: '../../components/config/logout.yml#/LogoutSuccessResponse'
+    '400':
+      description: 유효하지 않은 로그아웃 수단
+      content:
+        application/json:
+          schema:
+            $ref: '../../components/config/logout.yml#/ErrorResponseInvalidToken'
+    '500':
+      description: 내부 서버 오류
+      content:
+        application/json:
+          schema:
+            $ref: '../../components/config/logout.yml#/ErrorResponseInternalServer'

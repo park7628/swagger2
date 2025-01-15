@@ -1,0 +1,30 @@
+post:
+  summary: 사용자 회원 탈퇴
+  tags:
+    - config
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../../components/config/deleteUser.yml#/DeleteUserRequest'
+  responses:
+    '200':
+      description: 회원탈퇴 성공
+      content:
+        application/json:
+          schema:
+            $ref: '../../components/config/deleteUser.yml#/DeleteUserSuccessResponse'
+    '400':
+      description: 유효하지 않은 회원탈퇴 수단입니다
+      content:
+        application/json:
+          schema:
+            $ref: '../../components/config/deleteUser.yml#/ErrorResponseInvalidToken'
+    '500':
+      description: 내부 서버 오류입니다
+      content:
+        application/json:
+          schema:
+            $ref: '../../components/config/deleteUser.yml#/ErrorResponseInternalServer'
+

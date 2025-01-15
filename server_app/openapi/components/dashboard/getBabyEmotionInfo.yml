@@ -1,0 +1,58 @@
+GetBabyEmotionInfoParameters:
+  - in: cookie
+    name: accessToken
+    schema:
+      type: string
+    required: true
+    description: 액세스 토큰
+
+BabyEmotionInfoSuccessResponse:
+  type: object
+  properties:
+    success:
+      type: boolean
+      example: true
+    babyEmotionMap:
+      type: array
+      items:
+        type: object
+        properties:
+          babyEmotionTime:
+            type: string
+            format: date-time
+            example: "YYYY-MM-DD HH:MI:SS"
+          babyEmotionNum:
+            type: integer
+            minimum: 1
+            maximum: 5
+            example: 3
+
+ErrorResponseInvalidToken:
+  type: object
+  properties:
+    success:
+      type: boolean
+      example: false
+    message:
+      type: string
+      example: 유효하지 않은 접근수단
+
+ErrorResponseDBSearchNull:
+  type: object
+  properties:
+    success:
+      type: boolean
+      example: false
+    message:
+      type: string
+      example: 해당 데이터가 없습니다.
+
+ErrorResponseServer:
+  type: object
+  properties:
+    success:
+      type: boolean
+      example: false
+    message:
+      type: string
+      example: 내부 서버 오류

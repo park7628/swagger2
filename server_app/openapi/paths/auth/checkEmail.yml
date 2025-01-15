@@ -1,0 +1,31 @@
+get:
+  summary: email 중복 검사
+  tags:
+    - auth
+  parameters:
+    $ref: '../../components/auth/checkEmail.yml#/CheckEmailParameters'
+  responses:
+    '200':
+      description: 이메일 검사 성공
+      content:
+        application/json:
+          schema:
+            $ref: '../../components/auth/checkEmail.yml#/CheckEamilSuccessResponse'
+    '400':
+      description: 이메일 양식에 맞지 않음
+      content:
+        application/json:
+          schema:
+            $ref: '../../components/auth/checkEmail.yml#/ErrorBadEmailRequest'
+    '401':
+      description: 이미 등록된 이메일
+      content:
+        application/json:
+          schema:
+            $ref: '../../components/auth/checkEmail.yml#/ErrorFoundEmail'
+    '500':
+      description: 내부 서버 오류
+      content:
+        application/json:
+          schema:
+            $ref: '../../components/auth/checkEmail.yml#/ErrorInternalServer'

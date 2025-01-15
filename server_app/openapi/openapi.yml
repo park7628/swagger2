@@ -21,6 +21,8 @@ tags:
     description: 감정 판별 ai 기능이 필요할 시 사용하는 api
   - name: chatai
     description: chatbot 관련 ai 기능이 필요할 시 사용하는 api
+  - name: dashboard
+    description: dashboard 페이지 구성에 필요한 정보 요청 api
   - name: config
     description: config 페이지의 일반 설정을 저장 및 불러오는 api 
 
@@ -28,6 +30,42 @@ paths:
   /hello:
     $ref: './openapi/paths/hello.yml'
   /auth/login:
-    $ref: './openapi/paths/login.yml'
+    $ref: './openapi/paths/auth/login.yml'
+  /auth/checkEmail:
+    $ref: './openapi/paths/auth/checkEmail.yml'
+  /auth/checkPass:
+    $ref: './openapi/paths/auth/checkPass.yml'
   /auth/register:
-    $ref: './openapi/paths/register.yml'
+    $ref: './openapi/paths/auth/register.yml'
+  /auth/findEmail:
+    $ref: './openapi/paths/auth/findEmail.yml'
+  /auth/findPass:
+    $ref: './openapi/paths/auth/findPass.yml'
+  /config/getSettingInfo:
+    $ref: './openapi/paths/config/getSettingInfo.yml'
+  /config/setSettingInfo:
+    $ref: './openapi/paths/config/setSettingInfo.yml'
+  /config/getPeronalInfo:
+    $ref: './openapi/paths/config/getPersonalInfo.yml'
+  /config/logout:
+    $ref: './openapi/paths/config/logout.yml'
+  /config/deleteUser:
+    $ref: './openapi/paths/config/deleteUser.yml'
+  /config/setProfileImage:
+    $ref: './openapi/paths/config/setProfileImage.yml'
+  /config/getProfileImage:
+    $ref: './openapi/paths/config/getProfileImage.yml'
+  /config/getAliasName:
+    $ref: './openapi/paths/config/getAliasName.yml'
+  /config/setAliasName:
+    $ref: './openapi/paths/config/setAliasName.yml'
+  /config/setPass:
+    $ref: './openapi/paths/config/setPass.yml'
+  /dashboard/getBabyInfo:
+    $ref: './openapi/paths/dashboard/getBabyInfo.yml'
+  /dashboard/getBabyEmotionInfo:
+    $ref: './openapi/paths/dashboard/getBabyEmotionInfo.yml'
+  /dashboard/getBabyCoreTimeDataInfo:
+    $ref: './openapi/paths/dashboard/getBabyCoreTimeDataInfo.yml'
+  /dashboard/getBabyFrequencyInfo:
+    $ref: './openapi/paths/dashboard/getBabyFrequencyInfo.yml'

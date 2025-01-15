@@ -1,0 +1,25 @@
+get:
+  summary: pass 이상 여부 검사
+  tags:
+    - auth
+  parameters:
+    $ref: '../../components/auth/checkPass.yml#/CheckPassParameters'
+  responses:
+    '200':
+      description: 비밀번호 검사 성공
+      content:
+        application/json:
+          schema:
+            $ref: '../../components/auth/checkPass.yml#/CheckPassSuccessResponse'
+    '400':
+      description: 비밀번호 양식에 맞지 않음
+      content:
+        application/json:
+          schema:
+            $ref: '../../components/auth/checkPass.yml#/ErrorBadPassRequest'
+    '500':
+      description: 내부 서버 오류
+      content:
+        application/json:
+          schema:
+            $ref: '../../components/auth/checkPass.yml#/ErrorInternalServer'
